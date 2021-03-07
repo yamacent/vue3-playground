@@ -1,7 +1,8 @@
 <template>
   <div>
-    <span>{{ story.title }}</span>
-    <span style="margin-left: 0.5rem">by {{ story.by }}</span>
+    <h3>{{ story.title }}</h3>
+    <span>by {{ story.by }}</span>
+    <a :href="story.url" st,  yle="margin-left: 0.5rem">link</a>
   </div>
 </template>
 
