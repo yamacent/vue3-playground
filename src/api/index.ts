@@ -10,6 +10,16 @@ export interface Story {
   url: string;
 }
 
+export interface Comment {
+  by: string;
+  id: number;
+  kids: number[];
+  parent: number;
+  text: string;
+  time: number;
+  type: string;
+}
+
 export async function fetchStory(id: number): Promise<Story> {
   const story = {
     by: "dhouston",
@@ -58,4 +68,18 @@ export async function fetchStory(id: number): Promise<Story> {
   };
 
   return new Promise(resolve => setTimeout(() => resolve(story), 300));
+}
+
+export async function fetchComment(id: number): Promise<Comment> {
+  const comment = {
+    by: "norvig",
+    id: 2921983,
+    kids: [2922097, 2922429, 2924562, 2922709, 2922573, 2922140, 2922141],
+    parent: 2921506,
+    text:
+      "Aw shucks, guys ... you make me blush with your compliments.<p>Tell you what, Ill make a deal: I'll keep writing if you keep reading. K?",
+    time: 1314211127,
+    type: "comment"
+  };
+  return new Promise(resolve => setTimeout(() => resolve(comment), 300));
 }
