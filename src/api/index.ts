@@ -20,6 +20,22 @@ export interface Comment {
   type: string;
 }
 
+export async function fetchTopStories(): Promise<number[]> {
+  const stories = [
+    9129911,
+    9129199,
+    9127761,
+    9128141,
+    9128264,
+    9127792,
+    9129248,
+    9127092,
+    9128367,
+    9038733
+  ];
+  return new Promise(resolve => setTimeout(() => resolve(stories), 300));
+}
+
 export async function fetchStory(id: number): Promise<Story> {
   const story = {
     by: "dhouston",
