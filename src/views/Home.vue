@@ -3,16 +3,20 @@
     Home
     <p><router-link to="/story">story</router-link></p>
     <ul>
-      <li v-for="story in stories" :key="story">{{ story }}</li>
+      <li v-for="storyId in stories" :key="storyId">
+        <AppStory :storyId="storyId" />
+      </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { fetchTopStories } from "@/api";
 import { defineComponent, ref } from "@vue/runtime-core";
+import { fetchTopStories } from "@/api";
+import AppStory from "../components/AppStory.vue";
 
 export default defineComponent({
+  components: { AppStory },
   setup() {
     const stories = ref<number[]>([]);
 
