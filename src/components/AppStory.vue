@@ -1,9 +1,10 @@
 <template>
-  <div>story: {{ storyId }}</div>
+  <div v-if="story">{{ story.title }}</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+import { fetchStory, Story } from "@/api";
+import { defineComponent, ref } from "@vue/runtime-core";
 
 export default defineComponent({
   props: {
@@ -12,8 +13,18 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {
-    return {};
+  setup(props) {
+    const story = ref<Story | null>();
+
+    const init = async () => {
+      story.value = await fetchStory(props.storyId);
+    };
+
+    init();
+
+    return {
+      story
+    };
   }
 });
 </script>
