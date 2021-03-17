@@ -1,5 +1,9 @@
 <template>
-  <div v-if="story">{{ story.title }}</div>
+  <div v-if="story">
+    <h4>
+      <a :href="story.url">{{ story.title }}</a>
+    </h4>
+  </div>
 </template>
 
 <script lang="ts">
