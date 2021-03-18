@@ -3,6 +3,7 @@
     <h4>
       <a :href="story.url">{{ story.title }}</a>
     </h4>
+    <span>By {{ story.by }}</span>
   </div>
 </template>
 
