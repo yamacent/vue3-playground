@@ -4,6 +4,7 @@
       <a :href="story.url">{{ story.title }}</a>
     </h4>
     <span>By {{ story.by }}</span>
+    <span>{{ formatTime(story.time) }}</span>
   </div>
 </template>
 
@@ -28,7 +29,8 @@ export default defineComponent({
     init();
 
     return {
-      story
+      story,
+      formatTime: (t: number) => new Date(t * 1000)
     };
   }
 });
