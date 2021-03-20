@@ -1,4 +1,5 @@
 export interface Story {
+  type: "story";
   by: string;
   descendants: number;
   id: number;
@@ -6,18 +7,17 @@ export interface Story {
   score: number;
   time: number;
   title: string;
-  type: string;
   url: string;
 }
 
 export interface Comment {
+  type: "comment";
   by: string;
   id: number;
   kids: number[];
   parent: number;
   text: string;
   time: number;
-  type: string;
 }
 
 export async function fetchTopStories(): Promise<number[]> {
@@ -37,7 +37,7 @@ export async function fetchTopStories(): Promise<number[]> {
 }
 
 export async function fetchStory(id: number): Promise<Story> {
-  const story = {
+  const story: Story = {
     by: "dhouston",
     descendants: 71,
     id: 8863,
@@ -87,7 +87,7 @@ export async function fetchStory(id: number): Promise<Story> {
 }
 
 export async function fetchComment(id: number): Promise<Comment> {
-  const comment = {
+  const comment: Comment = {
     by: "norvig",
     id: 2921983,
     kids: [2922097, 2922429, 2924562, 2922709, 2922573, 2922140, 2922141],
