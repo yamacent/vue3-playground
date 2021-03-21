@@ -5,14 +5,17 @@
     </h4>
     <span>By {{ story.by }}</span>
     <span>{{ formatTime(story.time) }}</span>
+    <AppComment />
   </div>
 </template>
 
 <script lang="ts">
 import { fetchStory, Story } from "@/api";
 import { defineComponent, ref } from "@vue/runtime-core";
+import AppComment from "./AppComment.vue";
 
 export default defineComponent({
+  components: { AppComment },
   props: {
     storyId: {
       type: Number,
