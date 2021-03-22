@@ -5,7 +5,7 @@
     </h4>
     <span>By {{ story.by }}</span>
     <span>{{ formatTime(story.time) }}</span>
-    <AppComment />
+    <AppComment style="padding-left: 1rem" />
   </div>
 </template>
 
