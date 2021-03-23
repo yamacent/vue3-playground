@@ -1,7 +1,12 @@
 <template>
   <div v-if="story">
     <h3>{{ story.title }}</h3>
-    <span>by {{ story.by }}</span>
+    <span
+      >by
+      <router-link :to="{ name: 'User', userId: story.by }">{{
+        story.by
+      }}</router-link></span
+    >
     <a :href="story.url" style="margin-left: 0.5rem">link</a>
   </div>
   <div v-if="comment">

@@ -1,3 +1,5 @@
+import axios, { AxiosResponse } from "axios";
+
 export interface Story {
   type: "story";
   by: string;
@@ -18,6 +20,15 @@ export interface Comment {
   parent: number;
   text: string;
   time: number;
+}
+
+export interface User {
+  about: string;
+  created: number;
+  delay: number;
+  id: string;
+  karma: number;
+  submitted: number[];
 }
 
 export async function fetchTopStories(): Promise<number[]> {
@@ -98,4 +109,8 @@ export async function fetchComment(id: number): Promise<Comment> {
     type: "comment"
   };
   return new Promise(resolve => setTimeout(() => resolve(comment), 300));
+}
+
+export async function fetchUser(id: string): Promise<AxiosResponse<User>> {
+  return axios.get(`https://hacker-news.firebaseio.com/v0/user/${id}.json`);
 }

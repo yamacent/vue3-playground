@@ -3,7 +3,12 @@
     <h4>
       <a :href="story.url">{{ story.title }}</a>
     </h4>
-    <span>By {{ story.by }}</span>
+    <span
+      >By
+      <router-link :to="{ name: 'User', params: { userId: story.by } }">{{
+        story.by
+      }}</router-link>
+    </span>
     <span>{{ formatTime(story.time) }}</span>
     <AppComment style="padding-left: 1rem" />
   </div>
