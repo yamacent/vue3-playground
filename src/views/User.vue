@@ -1,6 +1,9 @@
 <template>
   <div>
-    {{ user }}
+    <h4>{{ user.id }}</h4>
+    <p>
+      {{ user.about }}
+    </p>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ import { useRoute } from "vue-router";
 export default defineComponent({
   setup() {
     const route = useRoute()
-    const user = ref<User | null>(null)
+    const user = ref<User>()
 
     const fetch = async () => {
       const userId = route.params.userId;
