@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <div v-if="user">
     <h4>{{ user.id }}</h4>
     <p>
       {{ user.about }}
     </p>
+    <p>{{ formatTime(user.created) }}</p>
+    <p>karma: {{ user.karma }}</p>
+    <ul>
+      <li v-for="storyId in user.submitted" :key="storyId">{{ storyId }}</li>
+    </ul>
   </div>
 </template>
 
@@ -26,7 +31,8 @@ export default defineComponent({
     fetch();
 
     return {
-      user
+      user,
+      formatTime: (t: number) => new Date(t * 1000)
     };
   }
 });
