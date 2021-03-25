@@ -19,8 +19,8 @@ import { useRoute } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const route = useRoute()
-    const user = ref<User>()
+    const route = useRoute();
+    const user = ref<User>();
 
     const fetch = async () => {
       const userId = route.params.userId;
