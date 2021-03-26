@@ -7,7 +7,9 @@
     <p>{{ formatTime(user.created) }}</p>
     <p>karma: {{ user.karma }}</p>
     <ul>
-      <li v-for="storyId in user.submitted" :key="storyId">{{ storyId }}</li>
+      <li v-for="storyId in user.submitted.slice(0, 10)" :key="storyId">
+        <AppStory :storyId="storyId" />
+      </li>
     </ul>
   </div>
 </template>
@@ -16,8 +18,12 @@
 import { defineComponent, ref } from "@vue/runtime-core";
 import { fetchUser, User } from "@/api";
 import { useRoute } from "vue-router";
+import AppStory from "../components/AppStory.vue";
 
 export default defineComponent({
+  components: {
+    AppStory
+  },
   setup() {
     const route = useRoute();
     const user = ref<User>();
