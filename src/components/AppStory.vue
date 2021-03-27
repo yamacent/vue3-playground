@@ -9,13 +9,14 @@
         story.by
       }}</router-link>
     </span>
-    <span>{{ formatTime(story.time) }}</span>
+    At <span>{{ formatTime(story.time) }}</span>
     <AppComment style="padding-left: 1rem" />
   </div>
 </template>
 
 <script lang="ts">
 import { fetchStory, Story } from "@/api";
+import { formatTime } from "@/util";
 import { defineComponent, ref } from "@vue/runtime-core";
 import AppComment from "./AppComment.vue";
 
@@ -38,7 +39,7 @@ export default defineComponent({
 
     return {
       story,
-      formatTime: (t: number) => new Date(t * 1000)
+      formatTime
     };
   }
 });

@@ -1,4 +1,7 @@
 <template>
+  <header>
+    <router-link to="/">Home</router-link>
+  </header>
   <div v-if="user">
     <h4>{{ user.id }}</h4>
     <p>
@@ -19,6 +22,7 @@ import { defineComponent, ref } from "@vue/runtime-core";
 import { fetchUser, User } from "@/api";
 import { useRoute } from "vue-router";
 import AppStory from "../components/AppStory.vue";
+import { formatTime } from "../util"
 
 export default defineComponent({
   components: {
@@ -38,7 +42,7 @@ export default defineComponent({
 
     return {
       user,
-      formatTime: (t: number) => new Date(t * 1000)
+      formatTime
     };
   }
 });
