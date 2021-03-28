@@ -9,7 +9,10 @@
         story.by
       }}</router-link>
     </span>
-    At <span>{{ formatTime(story.time) }}</span>
+    At
+    <router-link :to="{ name: 'StoryDetail' }">{{
+      formatTime(story.time)
+    }}</router-link>
     <AppComment style="padding-left: 1rem" />
   </div>
 </template>

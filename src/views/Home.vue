@@ -1,7 +1,6 @@
 <template>
   <div>
     Home
-    <p><router-link to="/story">story</router-link></p>
     <ul>
       <li v-for="storyId in stories" :key="storyId">
         <AppStory :storyId="storyId" />
