@@ -1,15 +1,16 @@
 <template>
   <div v-if="story">
-    <h3>{{ story.title }}</h3>
+    <h3>
+      <a :href="story.url">{{ story.title }}</a>
+    </h3>
     <span
       >by
       <router-link :to="{ name: 'User', params: { userId: story.by } }">{{
         story.by
       }}</router-link></span
     >
-    <a :href="story.url" style="margin-left: 0.5rem">link</a>
   </div>
-  <div v-if="comment">
+  <div v-if="comment" style="margin-top: 1rem">
     {{ JSON.stringify(comment) }}
   </div>
 </template>
