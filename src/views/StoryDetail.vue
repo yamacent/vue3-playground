@@ -10,24 +10,15 @@
       }}</router-link></span
     >
   </div>
-  <div v-if="comment" style="margin-top: 1rem">
-    {{ JSON.stringify(comment) }}
-  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import {
-  Comment,
-  fetchComment as _fetchComment,
-  fetchStory,
-  Story
-} from "../api";
+import { fetchStory, Story } from "../api";
 
 export default defineComponent({
   setup() {
-    const story = ref<Story | null>(null);
-    const comment = ref<Comment | null>(null);
+    const story = ref<Story>();
 
     const init = async () => {
       const res = await fetchStory(1);
@@ -35,13 +26,7 @@ export default defineComponent({
     };
     init();
 
-    const fetchComment = async () => {
-      const res = await _fetchComment(1);
-      comment.value = res;
-    };
-    fetchComment();
-
-    return { story, comment };
+    return { story };
   }
 });
 </script>
