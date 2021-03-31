@@ -4,7 +4,7 @@
       <a :href="story.url">{{ story.title }}</a>
     </h3>
     <span
-      >by
+      >By
       <router-link :to="{ name: 'User', params: { userId: story.by } }">{{
         story.by
       }}</router-link></span

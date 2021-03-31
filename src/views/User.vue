@@ -22,7 +22,7 @@ import { defineComponent, ref } from "@vue/runtime-core";
 import { fetchUser, User } from "@/api";
 import { useRoute } from "vue-router";
 import AppStory from "../components/AppStory.vue";
-import { formatTime } from "../util"
+import { formatTime } from "../util";
 
 export default defineComponent({
   components: {
