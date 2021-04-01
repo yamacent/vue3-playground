@@ -1,32 +1,15 @@
 <template>
-  <div v-if="story">
-    <h3>
-      <a :href="story.url">{{ story.title }}</a>
-    </h3>
-    <span
-      >By
-      <router-link :to="{ name: 'User', params: { userId: story.by } }">{{
-        story.by
-      }}</router-link></span
-    >
-  </div>
+  <AppStory :storyId="1" :detail="true" />
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { fetchStory, Story } from "../api";
+import { defineComponent } from "vue";
+import AppStory from "../components/AppStory.vue";
 
 export default defineComponent({
+  components: { AppStory },
   setup() {
-    const story = ref<Story>();
-
-    const init = async () => {
-      const res = await fetchStory(1);
-      story.value = res;
-    };
-    init();
-
-    return { story };
+    return {};
   }
 });
 </script>

@@ -13,7 +13,7 @@
     <router-link :to="{ name: 'StoryDetail' }">{{
       formatTime(story.time)
     }}</router-link>
-    <AppComment style="padding-left: 1rem" />
+    <AppComment v-if="detail" style="padding-left: 1rem" />
   </div>
 </template>
 
@@ -29,6 +29,10 @@ export default defineComponent({
     storyId: {
       type: Number,
       required: true
+    },
+    detail: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
