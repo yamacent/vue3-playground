@@ -36,10 +36,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const story = ref<Story | null>();
+    const story = ref<Story>();
 
     const init = async () => {
-      story.value = await fetchStory(props.storyId);
+      const res = await fetchStory(props.storyId);
+      story.value = res.data;
     };
 
     init();
