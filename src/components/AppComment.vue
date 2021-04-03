@@ -21,7 +21,8 @@ export default defineComponent({
     const comment = ref<Comment | null>();
 
     const init = async () => {
-      comment.value = await fetchComment(props.commentId);
+      const res = await fetchComment(props.commentId);
+      comment.value = res.data;
     };
 
     init();
