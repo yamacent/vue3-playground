@@ -31,20 +31,8 @@ export interface User {
   submitted: number[];
 }
 
-export async function fetchTopStories(): Promise<number[]> {
-  const stories = [
-    9129911,
-    9129199,
-    9127761,
-    9128141,
-    9128264,
-    9127792,
-    9129248,
-    9127092,
-    9128367,
-    9038733
-  ];
-  return new Promise(resolve => setTimeout(() => resolve(stories), 300));
+export async function fetchTopStories(): Promise<AxiosResponse<number[]>> {
+  return axios.get("https://hacker-news.firebaseio.com/v0/topstories.json");
 }
 
 async function fetchItem<T>(id: number): Promise<AxiosResponse<T>> {

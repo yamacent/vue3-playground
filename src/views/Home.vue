@@ -20,7 +20,8 @@ export default defineComponent({
     const stories = ref<number[]>([]);
 
     const fetch = async () => {
-      stories.value = await fetchTopStories();
+      const res = await fetchTopStories();
+      stories.value = res.data.slice(0, 10);
     };
 
     fetch();
