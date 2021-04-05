@@ -1,12 +1,9 @@
 <template>
-  <div>
-    Home
-    <ul>
-      <li v-for="storyId in stories" :key="storyId">
-        <AppStory :storyId="storyId" />
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="storyId in stories" :key="storyId">
+      <AppStory :storyId="storyId" />
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
