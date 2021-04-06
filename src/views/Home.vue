@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="storyId in stories" :key="storyId">
+    <li v-for="storyId in storyIds" :key="storyId">
       <AppStory :storyId="storyId" />
     </li>
   </ul>
@@ -14,17 +14,17 @@ import AppStory from "../components/AppStory.vue";
 export default defineComponent({
   components: { AppStory },
   setup() {
-    const stories = ref<number[]>([]);
+    const storyIds = ref<number[]>([]);
 
     const fetch = async () => {
       const res = await fetchTopStories();
-      stories.value = res.data.slice(0, 10);
+      storyIds.value = res.data.slice(0, 10);
     };
 
     fetch();
 
     return {
-      stories
+      storyIds
     };
   }
 });
