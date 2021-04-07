@@ -1,5 +1,10 @@
 <template>
-  <AppStory :storyId="1" :detail="true" />
+  <div>
+    <header>
+      <router-link to="/">Home</router-link>
+    </header>
+    <AppStory :storyId="$route.params.storyId" :detail="true" />
+  </div>
 </template>
 
 <script lang="ts">

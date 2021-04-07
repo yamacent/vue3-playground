@@ -10,10 +10,17 @@
       }}</router-link>
     </span>
     At
-    <router-link :to="{ name: 'StoryDetail' }">{{
+    <router-link :to="{ name: 'StoryDetail', params: { storyId: story.id } }">{{
       formatTime(story.time)
     }}</router-link>
-    <AppComment v-if="detail" style="padding-left: 1rem" />
+    <template v-if="detail">
+      <AppComment
+        v-for="commentId in story.kids.slice(0, 10)"
+        :key="commentId"
+        :commentId="commentId"
+        style="padding-left: 1rem"
+      />
+    </template>
   </div>
 </template>
 
