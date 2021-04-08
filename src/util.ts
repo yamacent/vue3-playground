@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export function formatTime(unixtime: number): string {
-  return new Date(unixtime * 1000).toLocaleString();
+  return dayjs.unix(unixtime).format();
 }

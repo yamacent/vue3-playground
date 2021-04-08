@@ -9,6 +9,7 @@
 <script lang="ts">
 import { fetchComment, Comment } from "@/api";
 import { defineComponent, ref } from "@vue/runtime-core";
+import { formatTime } from "@/util";
 
 export default defineComponent({
   props: {
@@ -29,7 +30,7 @@ export default defineComponent({
 
     return {
       comment,
-      formatTime: (t: number) => new Date(t * 1000)
+      formatTime
     };
   }
 });
