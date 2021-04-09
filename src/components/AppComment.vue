@@ -19,7 +19,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const comment = ref<Comment | null>();
+    const comment = ref<Comment>();
 
     const init = async () => {
       const res = await fetchComment(props.commentId);
