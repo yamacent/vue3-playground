@@ -1,9 +1,14 @@
 <template>
-  <ul>
-    <li v-for="storyId in storyIds" :key="storyId">
-      <AppStory :storyId="storyId" />
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li v-for="storyId in storyIds" :key="storyId">
+        <AppStory :storyId="storyId" />
+      </li>
+    </ul>
+    <div>
+      <button @click="next">Next</button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -24,7 +29,10 @@ export default defineComponent({
     fetch();
 
     return {
-      storyIds
+      storyIds,
+      next() {
+        console.log("next");
+      }
     };
   }
 });
