@@ -20,10 +20,12 @@ export default defineComponent({
   components: { AppStory },
   setup() {
     const storyIds = ref<number[]>([]);
+    let page = 1;
 
     const fetch = async () => {
       const res = await fetchTopStories();
-      storyIds.value = res.data.slice(0, 10);
+      const start = (page - 1) * 10;
+      storyIds.value = res.data.slice(start, start + 10);
     };
 
     fetch();
@@ -31,7 +33,8 @@ export default defineComponent({
     return {
       storyIds,
       next() {
-        console.log("next");
+        page++;
+        fetch();
       }
     };
   }
