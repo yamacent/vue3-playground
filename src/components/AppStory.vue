@@ -1,5 +1,5 @@
 <template>
-  <div v-if="story">
+  <div v-if="story" class="app-story">
     <h4>
       <a :href="story.url">{{ story.title }}</a>
     </h4>
@@ -22,6 +22,7 @@
       />
     </template>
   </div>
+  <div v-else class="app-story"></div>
 </template>
 
 <script lang="ts">
@@ -59,3 +60,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.app-story {
+  min-height: 80px;
+}
+</style>
