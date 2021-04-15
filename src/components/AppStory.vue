@@ -22,7 +22,9 @@
       />
     </template>
   </div>
-  <div v-else class="app-story"></div>
+  <div v-else class="app-story">
+    <div class="skeleton"></div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -64,5 +66,10 @@ export default defineComponent({
 <style scoped>
 .app-story {
   min-height: 80px;
+}
+.skeleton {
+  width: 60%;
+  height: 1rem;
+  background: #eeeeee;
 }
 </style>
