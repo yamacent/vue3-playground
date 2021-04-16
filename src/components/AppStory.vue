@@ -71,5 +71,15 @@ export default defineComponent({
   width: 60%;
   height: 1rem;
   background: #eeeeee;
+  position: relative;
+}
+.skeleton::after {
+  position: relative;
+  top: 2rem;
+  display: block;
+  content: '';
+  width: 80%;
+  height: 1rem;
+  background: #eeeeee;
 }
 </style>
