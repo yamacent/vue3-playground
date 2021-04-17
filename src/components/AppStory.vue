@@ -24,6 +24,7 @@
   </div>
   <div v-else class="app-story">
     <div class="skeleton"></div>
+    <div class="skeleton" style="margin-top: 1rem; width: 40%"></div>
   </div>
 </template>
 
@@ -67,19 +68,33 @@ export default defineComponent({
 .app-story {
   min-height: 80px;
 }
+</style>
+
+<style>
 .skeleton {
   width: 60%;
   height: 1rem;
-  background: #eeeeee;
+  background: #d9d9d9;
   position: relative;
+  overflow: hidden;
 }
-.skeleton::after {
-  position: relative;
-  top: 2rem;
+.skeleton::before {
   display: block;
-  content: '';
-  width: 80%;
-  height: 1rem;
-  background: #eeeeee;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent,  rgba(255, 255, 255, 0.5), transparent);
+  animation: skelton-animation 1.2s linear infinite;
+}
+@keyframes skelton-animation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 </style>
