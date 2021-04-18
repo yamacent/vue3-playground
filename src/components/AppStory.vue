@@ -86,7 +86,12 @@ export default defineComponent({
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent,  rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
   animation: skelton-animation 1.2s linear infinite;
 }
 @keyframes skelton-animation {
