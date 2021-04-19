@@ -3,7 +3,7 @@
     <header>
       <router-link to="/">Home</router-link>
     </header>
-    <AppStory :storyId="$route.params.storyId" :detail="true" />
+    <AppStory :storyId="Number($route.params.storyId)" :detail="true" />
   </div>
 </template>
 

@@ -1,7 +1,13 @@
 <template>
   <div v-if="comment">
     <p>{{ comment.text }}</p>
-    <span>By {{ comment.by }}</span>
+    <span
+      >By
+      <router-link :to="{ name: 'User', params: { userId: comment.by } }">{{
+        comment.by
+      }}</router-link>
+    </span>
+    At
     <span>{{ formatTime(comment.time) }}</span>
   </div>
 </template>
