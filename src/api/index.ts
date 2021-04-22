@@ -50,7 +50,11 @@ export async function fetchStory(id: number): Promise<AxiosResponse<Story>> {
 export async function fetchComment(
   id: number
 ): Promise<AxiosResponse<Comment>> {
-  return fetchItem<Comment>(id);
+  const res = await fetchItem<Comment>(id);
+  if (res.data.type !== "comment") {
+    throw new Error("not comment");
+  }
+  return res;
 }
 
 export async function fetchUser(id: string): Promise<AxiosResponse<User>> {
