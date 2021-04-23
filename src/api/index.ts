@@ -1,5 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 
+export interface Item {
+  type: string;
+}
+
 export interface Story {
   type: "story";
   by: string;
@@ -31,11 +35,19 @@ export interface User {
   submitted: number[];
 }
 
+export function isStory(item: Item): item is Story {
+  return item.type === "story";
+}
+
+export function isComment(item: Item): item is Comment {
+  return item.type === "comment";
+}
+
 export async function fetchTopStories(): Promise<AxiosResponse<number[]>> {
   return axios.get("https://hacker-news.firebaseio.com/v0/topstories.json");
 }
 
-async function fetchItem<T>(id: number): Promise<AxiosResponse<T>> {
+async function fetchItem<T = Item>(id: number): Promise<AxiosResponse<T>> {
   return axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
 }
 
