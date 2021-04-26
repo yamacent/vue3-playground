@@ -6,10 +6,14 @@ export default defineComponent({
     condition: {
       type: Function,
       required: true
+    },
+    type: {
+      type: String,
+      required: true
     }
   },
   setup(props, { slots }) {
     return () => (props.condition() ? slots.default?.() : null);
   }
-})
+});
 </script>
