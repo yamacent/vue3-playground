@@ -10,9 +10,11 @@
     <p>{{ formatTime(user.created) }}</p>
     <p>karma: {{ user.karma }}</p>
     <ul>
-      <li v-for="storyId in user.submitted.slice(0, 10)" :key="storyId">
-        <AppStory :storyId="storyId" />
-      </li>
+      <Wrapper>
+        <li v-for="storyId in user.submitted.slice(0, 10)" :key="storyId">
+          <AppStory :storyId="storyId" />
+        </li>
+      </Wrapper>
     </ul>
   </div>
 </template>
@@ -22,11 +24,12 @@ import { defineComponent, ref } from "@vue/runtime-core";
 import { fetchUser, User } from "@/api";
 import { useRoute } from "vue-router";
 import AppStory from "../components/AppStory.vue";
+import Wrapper from "../components/Wrapper.vue";
 import { formatTime } from "../util";
 
 export default defineComponent({
   components: {
-    AppStory
+    AppStory, Wrapper
   },
   setup() {
     const route = useRoute();
