@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+import { defineComponent, ref } from "@vue/runtime-core";
+import { fetchItem, Item } from "@/api";
 
 export default defineComponent({
   props: {
@@ -10,9 +11,22 @@ export default defineComponent({
     type: {
       type: String,
       required: true
+    },
+    id: {
+      type: Number,
+      required: true
     }
   },
   setup(props, { slots }) {
+    const item = ref<Item>();
+
+    const init = async () => {
+      const res = await fetchItem(props.id);
+      item.value = res.data;
+    }
+
+    init();
+
     return () => (props.condition() ? slots.default?.() : null);
   }
 });

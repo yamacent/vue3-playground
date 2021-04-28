@@ -47,7 +47,9 @@ export async function fetchTopStories(): Promise<AxiosResponse<number[]>> {
   return axios.get("https://hacker-news.firebaseio.com/v0/topstories.json");
 }
 
-async function fetchItem<T = Item>(id: number): Promise<AxiosResponse<T>> {
+export async function fetchItem<T = Item>(
+  id: number
+): Promise<AxiosResponse<T>> {
   return axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
 }
 
