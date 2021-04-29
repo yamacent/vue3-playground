@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, ref } from "@vue/runtime-core";
-import { fetchItem, Item } from "@/api";
+import { fetchItem, isStory, Item } from "@/api";
 
 export default defineComponent({
   props: {
@@ -23,11 +23,14 @@ export default defineComponent({
     const init = async () => {
       const res = await fetchItem(props.id);
       item.value = res.data;
-    }
+    };
 
     init();
 
-    return () => (props.condition() ? slots.default?.() : null);
+    return () =>
+      item.value && props.type === "story" && isStory(item.value)
+        ? slots.default?.()
+        : null;
   }
 });
 </script>

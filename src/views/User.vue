@@ -29,7 +29,8 @@ import { formatTime } from "../util";
 
 export default defineComponent({
   components: {
-    AppStory, Wrapper
+    AppStory,
+    Wrapper
   },
   setup() {
     const route = useRoute();
