@@ -4,10 +4,6 @@ import { fetchItem, isComment, isStory, Item } from "@/api";
 
 export default defineComponent({
   props: {
-    condition: {
-      type: Function,
-      required: true
-    },
     type: {
       type: String,
       required: true
