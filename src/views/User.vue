@@ -10,9 +10,10 @@
     <p>{{ formatTime(user.created) }}</p>
     <p>karma: {{ user.karma }}</p>
     <ul>
-      <Wrapper>
+      <Wrapper type="story" :id="1" v-slot="{ foo }">
         <li v-for="storyId in user.submitted.slice(0, 10)" :key="storyId">
           <AppStory :storyId="storyId" />
+          {{ foo }}
         </li>
       </Wrapper>
     </ul>
