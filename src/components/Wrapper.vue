@@ -27,7 +27,7 @@ export default defineComponent({
       item.value &&
       ((props.type === "story" && isStory(item.value)) ||
         (props.type === "comment" && isComment(item.value)))
-        ? slots.default?.({ foo: 'bar' })
+        ? slots.default?.({ item: item.value })
         : null;
   }
 });
