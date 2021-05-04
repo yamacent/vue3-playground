@@ -39,7 +39,11 @@ export default defineComponent({
   props: {
     storyId: {
       type: Number,
-      required: true
+      required: false
+    },
+    story: {
+      type: Object as () => Story,
+      required: false
     },
     detail: {
       type: Boolean,
@@ -50,8 +54,16 @@ export default defineComponent({
     const story = ref<Story>();
 
     const init = async () => {
-      const res = await fetchStory(props.storyId);
-      story.value = res.data;
+      if (props.story) {
+        story.value = props.story;
+        return;
+      }
+      if (props.storyId) {
+        const res = await fetchStory(props.storyId);
+        story.value = res.data;
+        return;
+      }
+      throw new Error('');
     };
 
     init();
