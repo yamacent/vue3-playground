@@ -41,7 +41,7 @@ export default defineComponent({
       type: Number,
       required: false
     },
-    story: {
+    storyObj: {
       type: Object as () => Story,
       required: false
     },
@@ -54,8 +54,8 @@ export default defineComponent({
     const story = ref<Story>();
 
     const init = async () => {
-      if (props.story) {
-        story.value = props.story;
+      if (props.storyObj) {
+        story.value = props.storyObj;
         return;
       }
       if (props.storyId) {
@@ -63,7 +63,7 @@ export default defineComponent({
         story.value = res.data;
         return;
       }
-      throw new Error('');
+      throw new Error("storyObj or storyId must be given");
     };
 
     init();
