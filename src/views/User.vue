@@ -18,7 +18,7 @@
         v-slot="{ item }"
       >
         <li>
-          <AppStory :storyId="item.id" />
+          <AppStory :storyObj="item" />
         </li>
       </Wrapper>
     </ul>
