@@ -22,6 +22,10 @@ export default defineComponent({
     commentId: {
       type: Number,
       required: true
+    },
+    commentObj: {
+      type: Object as () => Comment,
+      required: false
     }
   },
   setup(props) {
