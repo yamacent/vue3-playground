@@ -21,7 +21,7 @@ export default defineComponent({
   props: {
     commentId: {
       type: Number,
-      required: true
+      required: false
     },
     commentObj: {
       type: Object as () => Comment,
@@ -32,8 +32,16 @@ export default defineComponent({
     const comment = ref<Comment>();
 
     const init = async () => {
-      const res = await fetchComment(props.commentId);
-      comment.value = res.data;
+      if (props.commentObj) {
+        comment.value = props.commentObj;
+        return;
+      }
+      if (props.commentId) {
+        const res = await fetchComment(props.commentId);
+        comment.value = res.data;
+        return;
+      }
+      throw new Error("commentObj or commentId must be given");
     };
 
     init();
